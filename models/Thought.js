@@ -32,7 +32,8 @@ const thoughtSchema = new Schema({
     thoughtText: {
         type: String,
         required: true,
-        match: '/&.{1,280}$/'
+        minlength: 1,
+        maxlength: 280
     },
     createdAt: {
         type: Date,
@@ -42,7 +43,6 @@ const thoughtSchema = new Schema({
     username: {
         type: String,
         required: true,
-        trim: true,
     },
     reactions: [reactionSchema]
 }
