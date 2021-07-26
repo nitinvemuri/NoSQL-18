@@ -15,26 +15,29 @@ const userController = {
         })
     },
 
-    getUserById ({parmas}, res) {
-        User.findOne({ _id: parmas.id})
-        .populate({
-            path: 'thoughts',
-            select: '-__v'
-        })
-        .select('-__v')
-        .then(dbUserData => res.json(dbUserData))
-        .catch(err => {
-            console.log(err);
-            res.sendStatus(400);
-        });
+    getUserById({ params }, res) {
+        User.findOne({ _id: params.id })
+            .populate({
+                path: 'Thoughts',
+                select: '-__v'
+            })
+            .populate({
+                path: 'Friends',
+                select: '-__v'
+            })
+            .select('-__v')
+            .then(dbUserData => res.json(dbUserData))
+            .catch(err => {
+                console.log(err)
+                res.status(500).json(err)
+            });
     },
 
-    createUser({body}, res) {
+    createUser({ body }, res) {
         User.create(body)
-        .then(dbUsersData => res.json(dbUsersData))
-        .catch(err => res.status(400).json(err));
+            .then(dbUserData => res.json(dbUserData))
+            .catch(err => res.status(400).json(err));
     },
-
 
     updateUser({params, body}, res) {
         User.findOneAndUpdate({ _id: params.id}, body, { new: true, runValidators: true})
