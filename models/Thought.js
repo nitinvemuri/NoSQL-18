@@ -3,15 +3,9 @@ const dateFormat = require('../utils/dateformat');
 
 const reactionSchema = new Schema(
     {
-        reactionId: {
-        type: Schema.Types.ObjectId,
-        default: () => new Types.ObjectId()
-        },
 
-        reactionBody: {
+        reactBodyyyy: {
             type: String,
-            required: true,
-            trim: true,
             minlength: 1,
             maxlength: 280,
         },
@@ -21,6 +15,11 @@ const reactionSchema = new Schema(
             required: true,
             trim: true,
         },
+
+        reactionId: {
+            type: Schema.Types.ObjectId,
+            default: () => new Types.ObjectId()
+            },
 
         createdAt: {
             type: Date,

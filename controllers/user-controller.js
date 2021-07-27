@@ -77,14 +77,14 @@ const userController = {
     
 
     removeFriend({ params}, res) {
-        User.findOneAndDelete({ _id: params.friendId})
+        User.findOneAndDelete({ _id: params.id})
         .then(removeFriend => {
             if(!removeFriend) {
                 return res.status(404).json({ message: 'No friend with this id' })
             }
             return User.findByIdAndRemove(
                 { _id: params.userId},
-                { $pull: {friends: params.friendd}},
+                { $pull: {friends: params.friendId}},
                 {new: true}
             );
         })
