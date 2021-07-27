@@ -52,3 +52,52 @@ Repository follows best practices for class/id naming conventions, indentation, 
 Repository contains multiple descriptive commit messages.
 
 Repository contains a high-quality README with description and a link to a walkthrough video.
+
+
+
+  ## Table of Contents
+  * [Description](#Description)
+  * [Download](#Download)
+  * [Usage](#Usage)
+  * [Contributing](#Contributing)
+  * [Technology](#Techology)
+  * [Questions](#Questions)
+  * [GitHub](#Github)
+
+
+## Description
+
+In this project I created a social networking api that allows people to create an account, become friends with other accounts. This api also allows people to add, delete, or update certain aspects, such as reactions, friends, other themselves.
+
+
+## Download
+
+Download repo from https://github.com/nitinvemuri/NoSQL-18
+
+## Usage
+
+ 1. Type 'npm init' into the terminal with the needed packages. 
+ 2. Then type 'npm start' or 'node server.js'
+ 3. Access Insomnia 
+ 4. Put the localhost as the link and get started
+
+## Contributing
+
+Nitin Vemuri
+
+## Technology
+
+1. Express
+2. Mongoose
+3. Nodemon
+
+## Questions
+
+If there is any questions contact 
+
+**Email**: nitinvemuri@gmail.com
+
+## Github
+
+**Github**: github.com/nitinvemuri
+
