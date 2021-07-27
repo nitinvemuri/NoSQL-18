@@ -11,7 +11,9 @@ const reactionSchema = new Schema(
         reactionBody: {
             type: String,
             required: true,
-            match: '/&.{0,280}$/'
+            trim: true,
+            minlength: 1,
+            maxlength: 280,
         },
 
         username: {
@@ -24,6 +26,11 @@ const reactionSchema = new Schema(
             type: Date,
             default: Date.now,
             get: createdAtVal => dateFormat(createdAtVal)
+        }
+    },
+    {
+        toJSON: {
+            getters: true,
         }
     }
 )
@@ -45,11 +52,18 @@ const thoughtSchema = new Schema({
         required: true,
     },
     reactions: [reactionSchema]
+},
+{
+    toJSON: {
+        getters: true,
+        virtuals: true
+    },
+    id: false,
 }
 );
 
 thoughtSchema.virtual('reactionCount').get(function() {
-    return this.reaction.length
+    return this.reactions.length
 })
 
 const Thought = model('Thought', thoughtSchema)
