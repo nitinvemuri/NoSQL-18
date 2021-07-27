@@ -1,7 +1,5 @@
 const { Thought, Types, User } = require('../models');
 
-
-
 const thoughtController = {
     getAllThought(req, res) {
         Thought.find({})
@@ -96,14 +94,13 @@ const thoughtController = {
     addReaction({ params, body }, res) {
         console.log(body)
         Thought.findOneAndUpdate(
-            
           { _id: params.id },
           { $push: { reactions: body } },
           { new: true, runValidators: true}
         )
           .then((dbUserData) => {
             if (!dbUserData) {
-              res.status(404).json({ message: reactionId });
+              res.status(404).json({ message: "nah" });
               return;
             }
             res.json(dbUserData);
@@ -111,22 +108,16 @@ const thoughtController = {
           .catch((err) => res.json(err));
       }, 
 
-    // Delete a reaction by ID
+   
     deleteReaction({params}, res) {
         Thought.findOneAndUpdate(
-            {_id: params.id}, 
+            {_id: params.thoughtid}, 
             {$pull: {reactions: {reactionId: params.reactionId}}}, 
-            {new : true})
-        .then(dbThoughtsData => {
-            if (!dbThoughtsData) {
-                res.status(404).json({message: 'No thoughts foo!'});
-                return;
-            }
-            res.json(dbThoughtsData);
-        })
-        .catch(err => res.status(400).json(err));
+            {new : true, runValidators: true})
+        .then(dbThoughtData => res.json(dbThoughtData))
+        .catch(err => res.json(err))
     }
 
-}
+};
 
 module.exports = thoughtController;
