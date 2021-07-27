@@ -99,5 +99,5 @@ If there is any questions contact
 
 ## Github
 
-**Github**: github.com/nitinvemuri
+github.com/nitinvemuri
 
