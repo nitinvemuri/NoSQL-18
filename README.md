@@ -57,6 +57,7 @@ Repository contains a high-quality README with description and a link to a walkt
 
   ## Table of Contents
   * [Description](#Description)
+  * [Video](#Video)
   * [Download](#Download)
   * [Usage](#Usage)
   * [Contributing](#Contributing)
@@ -68,6 +69,10 @@ Repository contains a high-quality README with description and a link to a walkt
 ## Description
 
 In this project I created a social networking api that allows people to create an account, become friends with other accounts. This api also allows people to add, delete, or update certain aspects, such as reactions, friends, other themselves.
+
+## Video
+
+https://drive.google.com/file/d/1ZGSbp-3DRZ2A4QZib-2sSiP-DVrKDkvk/view?usp=sharing
 
 
 ## Download
